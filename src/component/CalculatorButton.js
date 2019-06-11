@@ -9,7 +9,7 @@ class CalculatorButton extends React.Component {
 
     render() {
         return (
-            <button
+            <button className="btn btn-outline-primary btn-lg btn-block"
                 onClick={this.handleClickButton}>
                 {this.props.btnValue}
             </button>

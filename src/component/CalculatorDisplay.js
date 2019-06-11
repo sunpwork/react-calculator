@@ -3,7 +3,10 @@ import React from 'react'
 class CalculatorDisplay extends React.Component {
     render() {
         return (
-            <div>{this.props.displayValue}</div>
+            <div className="row">
+                <input className="form-control" style={{textAlign:'right'}} type="text" value={this.props.displayValue}
+                       disabled />
+            </div>
         );
     }
 }

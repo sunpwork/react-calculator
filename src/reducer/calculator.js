@@ -35,30 +35,35 @@ export default function (state, action) {
                 operator: action.btnValue
             };
         case CALCULATE:
-            let result;
-            let firstNumber = parseFloat(state.firstNumber);
-            let secondNumber = parseFloat(state.secondNumber);
-            switch (state.operator) {
-                case '+':
-                    result = firstNumber + secondNumber;
-                    break;
-                case '-':
-                    result = firstNumber - secondNumber;
-                    break;
-                case '*':
-                    result = firstNumber * secondNumber;
-                    break;
-                case '/':
-                    result = firstNumber / secondNumber;
-                    break;
+            if (state.firstNumber && state.secondNumber && state.operator) {
+                let result;
+                let firstNumber = parseFloat(state.firstNumber);
+                let secondNumber = parseFloat(state.secondNumber);
+                switch (state.operator) {
+                    case '+':
+                        result = firstNumber + secondNumber;
+                        break;
+                    case '-':
+                        result = firstNumber - secondNumber;
+                        break;
+                    case '*':
+                        result = firstNumber * secondNumber;
+                        break;
+                    case '/':
+                        result = firstNumber / secondNumber;
+                        break;
+                }
+
+                return {
+                    firstNumber: result,
+                    secondNumber: '',
+                    operator: '',
+                    result: result,
+                    displayValue: result,
+                };
+            } else {
+                return state;
             }
-            return {
-                firstNumber: result,
-                secondNumber: '',
-                operator: '',
-                result: result,
-                displayValue: result,
-            };
         case RESET:
             return {
                 displayValue: '',
