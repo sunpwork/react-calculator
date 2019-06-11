@@ -1,59 +1,93 @@
-const ADD_NUMBER = 'add_number';
-const ADD_OPERATOR = 'add_operator';
-const CALCULATE_EXPRESSION = 'calculate_expression';
+const EDIT_FIRST_NUMBER = 'edit_first_number';
+const EDIT_SECOND_NUMBER = 'edit_second_number';
+const EDIT_OPERATOR = 'edit_operator';
+const CALCULATE = 'calculate';
+const RESET = 'reset';
 
 export default function (state, action) {
     if (!state) {
         state = {
-            expression: '',
+            displayValue: '',
+            firstNumber: '',
+            secondNumber: '',
+            operator: null,
             result: null,
         };
     }
     switch (action.type) {
-        case ADD_NUMBER:
+        case EDIT_FIRST_NUMBER:
             return {
-                expression: state.expression + action.btnValue,
-                result: null
+                ...state,
+                displayValue: state.firstNumber + action.btnValue,
+                firstNumber: state.firstNumber + action.btnValue
             };
 
-        case ADD_OPERATOR:
-            let expression = state.expression;
-            // 是否已有运算符
-            if (state.expression.charAt(state.expression.length).match(/\+|-|\*|\//)) {
-                // 替换运算符
-                expression = expression.replace(/\+|-|\*|\//, action.btnValue);
-            } else {
-                expression += action.btnValue;
-            }
-
+        case EDIT_SECOND_NUMBER:
             return {
-                expression: expression,
-                result: null
+                ...state,
+                displayValue: state.secondNumber + action.btnValue,
+                secondNumber: state.secondNumber + action.btnValue
             };
-        case CALCULATE_EXPRESSION:
-            let result = eval(state.expression);
+        case EDIT_OPERATOR:
             return {
-                expression: '',
-                result: result
+                ...state,
+                displayValue: action.btnValue,
+                operator: action.btnValue
             };
-        default: {
-            return {
-                expression: state.expression,
-                result: state.result
+        case CALCULATE:
+            let result;
+            let firstNumber = parseFloat(state.firstNumber);
+            let secondNumber = parseFloat(state.secondNumber);
+            switch (state.operator) {
+                case '+':
+                    result = firstNumber + secondNumber;
+                    break;
+                case '-':
+                    result = firstNumber - secondNumber;
+                    break;
+                case '*':
+                    result = firstNumber * secondNumber;
+                    break;
+                case '/':
+                    result = firstNumber / secondNumber;
+                    break;
             }
-        }
+            return {
+                firstNumber: result,
+                secondNumber: '',
+                operator: '',
+                result: result,
+                displayValue: result,
+            };
+        case RESET:
+            return {
+                displayValue: '',
+                firstNumber: '',
+                secondNumber: '',
+                operator: null,
+                result: null,
+            };
+        default:
+            return state;
 
     }
 };
 
-export const addNumber = (btnValue) => {
-    return {type: ADD_NUMBER, btnValue};
+export const editFirstNumber = (btnValue) => {
+    return {type: EDIT_FIRST_NUMBER, btnValue};
 };
 
-export const addOperator = (btnValue) => {
-    return {type: ADD_OPERATOR, btnValue};
+export const editSecondNumber = (btnValue) => {
+    return {type: EDIT_SECOND_NUMBER, btnValue};
 };
 
-export const calculateExpression = () => {
-    return {type: CALCULATE_EXPRESSION};
+export const editOperator = (btnValue) => {
+    return {type: EDIT_OPERATOR, btnValue};
+};
+
+export const calculate = () => {
+    return {type: CALCULATE};
+};
+export const reset = () => {
+    return {type: RESET};
 };

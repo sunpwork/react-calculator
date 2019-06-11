@@ -1,12 +1,14 @@
 import React from 'react'
-import CalculatorButton from './CalculatorButton';
+import CalculatorKeyBoard from './CalculatorKeyboard';
+import CalculatorDisplay from "./CalculatorDisplay";
 
 class CalculatorApp extends React.Component {
 
     render() {
         return (
             <div>
-                <CalculatorButton btnValue="2"/>
+                <CalculatorDisplay/>
+                <CalculatorKeyBoard/>
             </div>
         )
     }
