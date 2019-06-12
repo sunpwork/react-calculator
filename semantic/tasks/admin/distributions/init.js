@@ -54,7 +54,7 @@ module.exports = function(callback) {
     return;
   }
 
-  // Do Git commands synchronously per component, to avoid issues
+  // Do Git commands synchronously per components, to avoid issues
   stepRepo = function() {
 
     index = index + 1;

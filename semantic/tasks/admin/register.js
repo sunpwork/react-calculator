@@ -3,9 +3,9 @@
 *******************************/
 
 /*
-  Task to register component repos with Package Managers
-  * Registers component with bower
-  * Registers component with NPM
+  Task to register components repos with Package Managers
+  * Registers components with bower
+  * Registers components with NPM
 */
 
 var
@@ -28,7 +28,7 @@ module.exports = function(callback) {
 
   console.log('Registering repos with package managers');
 
-  // Do Git commands synchronously per component, to avoid issues
+  // Do Git commands synchronously per components, to avoid issues
   stepRepo = function() {
     index = index + 1;
     if(index >= total) {

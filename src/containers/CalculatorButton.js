@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import CalculatorButton from '../component/CalculatorButton';
+import CalculatorButton from '../components/CalculatorButton';
 import {editFirstNumber, editSecondNumber, editOperator, calculate, reset} from "../reducer/calculator";
 
 class CalculatorButtonContainer extends React.Component {

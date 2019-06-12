@@ -52,6 +52,8 @@ export default function (state, action) {
                     case '/':
                         result = firstNumber / secondNumber;
                         break;
+                    default:
+                        return state;
                 }
 
                 return {

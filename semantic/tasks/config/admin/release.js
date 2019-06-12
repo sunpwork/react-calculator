@@ -8,7 +8,7 @@ module.exports = {
   // path to components for repos
   source     : './dist/components/',
 
-  // modified asset paths for component repos
+  // modified asset paths for components repos
   paths: {
     source : '../themes/default/assets/',
     output : 'assets/'
@@ -20,7 +20,7 @@ module.exports = {
     package  : './tasks/config/admin/templates/package.json',
     meteor   : {
       css       : './tasks/config/admin/templates/css-package.js',
-      component : './tasks/config/admin/templates/component-package.js',
+      component : './tasks/config/admin/templates/components-package.js',
       less      : './tasks/config/admin/templates/less-package.js',
     },
     readme : './tasks/config/admin/templates/README.md',
@@ -41,7 +41,7 @@ module.exports = {
   // root name for distribution repos
   distRepoRoot      : 'Semantic-UI-',
 
-  // root name for single component repos
+  // root name for single components repos
   componentRepoRoot : 'UI-',
 
   // root name for package managers

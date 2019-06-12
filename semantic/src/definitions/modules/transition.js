@@ -1019,7 +1019,7 @@ $.fn.transition.settings = {
   // module info
   name          : 'Transition',
 
-  // hide all output from this component regardless of other settings
+  // hide all output from this components regardless of other settings
   silent        : false,
 
   // debug content outputted to console

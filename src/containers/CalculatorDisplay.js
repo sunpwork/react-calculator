@@ -1,5 +1,5 @@
 import React from 'react';
-import CalculatorDisplay from '../component/CalculatorDisplay';
+import CalculatorDisplay from '../components/CalculatorDisplay';
 import {connect} from "react-redux";
 
 class CalculatorDisplayContainer extends React.Component {

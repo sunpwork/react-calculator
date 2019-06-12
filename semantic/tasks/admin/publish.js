@@ -3,7 +3,7 @@
 *******************************/
 
 /*
- This task update all SUI individual component repos with new versions of components
+ This task update all SUI individual components repos with new versions of components
 
   * Commits changes from create components to GitHub and Tags
 
