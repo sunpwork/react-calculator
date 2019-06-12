@@ -4,7 +4,7 @@
 
 /*
 
- This task update all SUI individual components repos with new versions of components
+ This task update all SUI individual component repos with new versions of component
 
   * Commits changes from create repo
   * Pushes changes to GitHub
@@ -53,7 +53,7 @@ module.exports = function(callback) {
     return;
   }
 
-  // Do Git commands synchronously per components, to avoid issues
+  // Do Git commands synchronously per component, to avoid issues
   stepRepo = function() {
 
     index = index + 1;
@@ -82,7 +82,7 @@ module.exports = function(callback) {
       isNewVersion  = (version && componentPackage.version != version),
 
       commitMessage = (isNewVersion)
-        ? 'Updated components to version ' + version
+        ? 'Updated component to version ' + version
         : 'Updated files from main repo',
 
       gitOptions      = { cwd: outputDirectory },
@@ -174,7 +174,7 @@ module.exports = function(callback) {
       setConfig();
     }
     else {
-      console.error('Repository must be setup before running update components');
+      console.error('Repository must be setup before running update component');
     }
 
   };

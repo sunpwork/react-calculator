@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 
-const TabPage = (props) => {
+const Index = (props) => {
     return (
         <h1>{props.displayValue}</h1>
     );
@@ -13,4 +13,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(TabPage);
+export default connect(mapStateToProps)(Index);

@@ -1,44 +1,42 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import CalculatorButton from '../../components/CalculatorButton';
-import {editFirstNumber, editSecondNumber, editOperator, calculate, reset} from "../../../../../reducer/calculator";
+import CalculatorButton from '../../component/CalculatorButton';
+import {editFirstNumber, editSecondNumber, editOperator, calculate, reset} from "../../reducer/calculator";
 
-class CalculatorButtonContainer extends React.Component {
-    handleClickButton = () => {
-        let btnValue = this.props.btnValue;
+const CalculatorButtonContainer = (props) => {
+    const handleClickButton = () => {
+        let btnValue = props.btnValue;
         if (btnValue.match(/[0-9]|\./)) {
             // 数字按钮
-            if (this.props.operator) {
+            if (props.operator) {
                 // 已输入运算符
-                this.props.editSecondNumber(btnValue);
+                props.editSecondNumber(btnValue);
             } else {
                 // 未输入运算符
-                this.props.editFirstNumber(btnValue);
+                props.editFirstNumber(btnValue);
             }
         } else if (btnValue.match(/\+|-|\*|\//)) {
             // 运算符按钮
-            if (this.props.firstNumber) {
+            if (props.firstNumber) {
                 // 输入第一个数字后才能输入运算符
-                this.props.editOperator(btnValue)
+                props.editOperator(btnValue)
             }
 
         } else if (btnValue === '=') {
             // 计算按钮
-            this.props.calculate();
+            props.calculate();
         } else if (btnValue === 'AC') {
-            this.props.reset();
+            props.reset();
         }
     };
 
-    render() {
-        return (
-            <CalculatorButton
-                btnValue={this.props.btnValue}
-                onClickButton={this.handleClickButton}
-            />
-        );
-    }
-}
+    return (
+        <CalculatorButton
+            btnValue={props.btnValue}
+            onClickButton={handleClickButton}
+        />
+    );
+};
 
 const mapStateToProps = (state) => {
     return {

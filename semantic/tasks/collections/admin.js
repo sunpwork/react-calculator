@@ -21,7 +21,7 @@ module.exports = function(gulp) {
     createComponents    = require('../admin/components/create'),
     updateComponents    = require('../admin/components/update'),
 
-    // single components releases
+    // single component releases
     initDistributions   = require('../admin/distributions/init'),
     createDistributions = require('../admin/distributions/create'),
     updateDistributions = require('../admin/distributions/update'),
@@ -32,18 +32,18 @@ module.exports = function(gulp) {
   ;
 
   /* Release */
-  gulp.task('init distributions', 'Grabs each components from GitHub', initDistributions);
+  gulp.task('init distributions', 'Grabs each component from GitHub', initDistributions);
   gulp.task('create distributions', 'Updates files in each repo', createDistributions);
-  gulp.task('init components', 'Grabs each components from GitHub', initComponents);
-  gulp.task('create components', 'Updates files in each repo', createComponents);
+  gulp.task('init component', 'Grabs each component from GitHub', initComponents);
+  gulp.task('create component', 'Updates files in each repo', createComponents);
 
   /* Publish */
-  gulp.task('update distributions', 'Commits components updates from create to GitHub', updateDistributions);
-  gulp.task('update components', 'Commits components updates from create to GitHub', updateComponents);
+  gulp.task('update distributions', 'Commits component updates from create to GitHub', updateDistributions);
+  gulp.task('update component', 'Commits component updates from create to GitHub', updateComponents);
 
   /* Tasks */
   gulp.task('release', 'Stages changes in GitHub repos for all distributions', release);
-  gulp.task('publish', 'Publishes all releases (components, package)', publish);
+  gulp.task('publish', 'Publishes all releases (component, package)', publish);
   gulp.task('register', 'Registers all packages with NPM', register);
 
 };

@@ -3,11 +3,11 @@
 *******************************/
 
 /*
- This will create individual components repositories for each SUI components
+ This will create individual component repositories for each SUI component
 
-  * copy components files from release
+  * copy component files from release
   * create commonjs files as index.js for NPM release
-  * create release notes that filter only items related to components
+  * create release notes that filter only items related to component
   * custom package.json file from template
   * create bower.json from template
   * create README from template
@@ -81,7 +81,7 @@ module.exports = function(callback) {
         regExp               = {
           match            : {
             // templated values
-            name      : '{components}',
+            name      : '{component}',
             titleName : '{Component}',
             version   : '{version}',
             files     : '{files}',
@@ -223,7 +223,7 @@ module.exports = function(callback) {
               npm.version = version;
             }
             npm.title       = 'Semantic UI - ' + capitalizedComponent;
-            npm.description = 'Single components release of ' + component;
+            npm.description = 'Single component release of ' + component;
             npm.repository  = {
               type : 'git',
               url  : gitURL
@@ -250,7 +250,7 @@ module.exports = function(callback) {
             if(version) {
               composer.version = version;
             }
-            composer.description = 'Single components release of ' + component;
+            composer.description = 'Single component release of ' + component;
             return composer;
           }))
           .pipe(gulp.dest(outputDirectory))
@@ -262,7 +262,7 @@ module.exports = function(callback) {
         return gulp.src(release.templates.notes)
           .pipe(plumber())
           .pipe(flatten())
-          // Remove release notes for lines not mentioning components
+          // Remove release notes for lines not mentioning component
           .pipe(replace(regExp.match.unrelatedNotes, regExp.replace.unrelatedNotes))
           .pipe(replace(regExp.match.whitespace, regExp.replace.whitespace))
           .pipe(replace(regExp.match.spacedVersions, regExp.replace.spacedVersions))

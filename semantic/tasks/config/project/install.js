@@ -172,7 +172,7 @@ module.exports = {
       }
     ;
 
-    // add components
+    // add component
     if(answers.components) {
       json.components = answers.components;
     }
@@ -201,8 +201,8 @@ module.exports = {
 
       json.paths.output = {
         packaged     : path.normalize(answers.dist + '/'),
-        uncompressed : path.normalize(answers.dist + '/components/'),
-        compressed   : path.normalize(answers.dist + '/components/'),
+        uncompressed : path.normalize(answers.dist + '/component/'),
+        compressed   : path.normalize(answers.dist + '/component/'),
         themes       : path.normalize(answers.dist + '/themes/')
       };
     }
@@ -333,11 +333,11 @@ module.exports = {
         when: when.allowOverwrite,
         choices: [
           {
-            name: 'Automatic (Use default locations and all components)',
+            name: 'Automatic (Use default locations and all component)',
             value: 'auto'
           },
           {
-            name: 'Express (Set components and output folder)',
+            name: 'Express (Set component and output folder)',
             value: 'express'
           },
           {
@@ -349,7 +349,7 @@ module.exports = {
       {
         type: 'checkbox',
         name: 'components',
-        message: 'What components should we include in the package?',
+        message: 'What component should we include in the package?',
 
         // duplicated manually from tasks/defaults.js with additional property
         choices: [
@@ -476,7 +476,7 @@ module.exports = {
       {
         type: 'input',
         name: 'compressed',
-        message: 'Where should we output compressed components?',
+        message: 'Where should we output compressed component?',
         default: defaults.paths.output.compressed,
         filter: filter.removeTrailingSlash,
         when: when.custom
@@ -484,7 +484,7 @@ module.exports = {
       {
         type: 'input',
         name: 'uncompressed',
-        message: 'Where should we output uncompressed components?',
+        message: 'Where should we output uncompressed component?',
         default: defaults.paths.output.uncompressed,
         filter: filter.removeTrailingSlash,
         when: when.custom

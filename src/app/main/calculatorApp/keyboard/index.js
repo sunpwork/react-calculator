@@ -1,5 +1,5 @@
 import React from 'react'
-import CalculatorButton from './button/CalculatorButton';
+import CalculatorButton from './button';
 
 const CalculatorKeyboard = () => {
 

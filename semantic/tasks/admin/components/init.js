@@ -4,7 +4,7 @@
 
 /*
 
- This task pulls the latest version of each components from GitHub
+ This task pulls the latest version of each component from GitHub
 
   * Creates new repo if doesnt exist (locally & GitHub)
   * Adds remote it doesnt exists
@@ -54,7 +54,7 @@ module.exports = function(callback) {
     return;
   }
 
-  // Do Git commands synchronously per components, to avoid issues
+  // Do Git commands synchronously per component, to avoid issues
   stepRepo = function() {
 
     index = index + 1;

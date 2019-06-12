@@ -1,10 +1,10 @@
 import React from 'react';
-import CalculatorDisplay from '../components/CalculatorDisplay';
+import CalculatorDisplay from '../component/CalculatorDisplay';
 import {connect} from "react-redux";
 
-const CalculatorDisplayContainer = () => {
+const CalculatorDisplayContainer = (props) => {
     return (
-        <CalculatorDisplay displayValue={this.props.displayValue}/>
+        <CalculatorDisplay displayValue={props.displayValue}/>
     );
 };
 

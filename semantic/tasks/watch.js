@@ -214,7 +214,7 @@ module.exports = function(callback) {
     Watch Assets
   ---------------*/
 
-  // only copy assets that match components names (or their plural)
+  // only copy assets that match component names (or their plural)
   gulp
     .watch([
       source.themes   + '/**/assets/**/*.*'

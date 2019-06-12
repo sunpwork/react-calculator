@@ -3,7 +3,7 @@ import React from 'react';
 const CalculatorButton = (props) => {
     const handleClickButton = () => {
         if (props.onClickButton) {
-            props.onClickButton(this.props.btnValue);
+            props.onClickButton(props.btnValue);
         }
     };
 

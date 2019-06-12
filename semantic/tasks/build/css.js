@@ -83,7 +83,7 @@ module.exports = function(callback) {
   uncompressedStream = stream.pipe(clone());
   compressedStream   = stream.pipe(clone());
 
-  // uncompressed components css
+  // uncompressed component css
   uncompressedStream
     .pipe(plumber())
     .pipe(replace(assets.source, assets.uncompressed))
@@ -95,7 +95,7 @@ module.exports = function(callback) {
     })
   ;
 
-  // compressed components css
+  // compressed component css
   compressedStream
     .pipe(plumber())
     .pipe(clone())

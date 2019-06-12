@@ -1,8 +1,8 @@
 import React from 'react'
-import CalculatorKeyBoard from './keyboard/CalculatorKeyboard';
-import CalculatorDisplay from "./display/CalculatorDisplay";
+import CalculatorKeyBoard from './keyboard';
+import CalculatorDisplay from "./display";
 
-export const Calculator = () => {
+const CalculatorApp = () => {
     return (
         <div>
             <CalculatorDisplay/>
@@ -10,3 +10,5 @@ export const Calculator = () => {
         </div>
     )
 };
+
+export default CalculatorApp;

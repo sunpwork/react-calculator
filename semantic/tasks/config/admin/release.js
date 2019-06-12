@@ -5,10 +5,10 @@
 // release settings
 module.exports = {
 
-  // path to components for repos
-  source     : './dist/components/',
+  // path to component for repos
+  source     : './dist/component/',
 
-  // modified asset paths for components repos
+  // modified asset paths for component repos
   paths: {
     source : '../themes/default/assets/',
     output : 'assets/'
@@ -20,7 +20,7 @@ module.exports = {
     package  : './tasks/config/admin/templates/package.json',
     meteor   : {
       css       : './tasks/config/admin/templates/css-package.js',
-      component : './tasks/config/admin/templates/components-package.js',
+      component : './tasks/config/admin/templates/component-package.js',
       less      : './tasks/config/admin/templates/less-package.js',
     },
     readme : './tasks/config/admin/templates/README.md',
@@ -41,7 +41,7 @@ module.exports = {
   // root name for distribution repos
   distRepoRoot      : 'Semantic-UI-',
 
-  // root name for single components repos
+  // root name for single component repos
   componentRepoRoot : 'UI-',
 
   // root name for package managers
@@ -58,7 +58,7 @@ module.exports = {
     'CSS'
   ],
 
-  // components that get separate repositories for bower/npm
+  // component that get separate repositories for bower/npm
   components : [
     'accordion',
     'ad',

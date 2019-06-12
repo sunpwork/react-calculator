@@ -21,8 +21,8 @@ module.exports = {
       less         : '../docs/out/src/',
       metadata     : '../docs/out/',
       packaged     : '../docs/out/dist/',
-      uncompressed : '../docs/out/dist/components/',
-      compressed   : '../docs/out/dist/components/',
+      uncompressed : '../docs/out/dist/component/',
+      compressed   : '../docs/out/dist/component/',
       themes       : '../docs/out/dist/themes/'
     },
     template: {
