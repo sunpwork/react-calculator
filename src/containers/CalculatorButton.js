@@ -17,7 +17,10 @@ class CalculatorButtonContainer extends React.Component {
             }
         } else if (btnValue.match(/\+|-|\*|\//)) {
             // 运算符按钮
-            this.props.editOperator(btnValue)
+            if (this.props.firstNumber) {
+                // 输入第一个数字后才能输入运算符
+                this.props.editOperator(btnValue)
+            }
 
         } else if (btnValue === '=') {
             // 计算按钮
@@ -39,6 +42,7 @@ class CalculatorButtonContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        firstNumber: state.firstNumber,
         operator: state.operator
     }
 };
