@@ -1,13 +1,11 @@
 import React from 'react'
 import {connect} from "react-redux";
 
-class TabPage extends React.Component {
-    render() {
-        return (
-            <h1>{this.props.displayValue}</h1>
-        );
-    }
-}
+const TabPage = (props) => {
+    return (
+        <h1>{props.displayValue}</h1>
+    );
+};
 
 const mapStateToProps = (state) => {
     return {
