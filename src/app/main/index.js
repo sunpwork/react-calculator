@@ -15,6 +15,13 @@ class Main extends React.Component {
         this.setState({calcDisplayValue});
     };
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        if (this.props === nextProps) {
+            // calcDisplayValue更新时 阻止渲染
+            return false;
+        }
+    }
+
     render() {
         return (
             <main>
