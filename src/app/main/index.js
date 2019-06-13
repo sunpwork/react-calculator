@@ -1,22 +1,34 @@
-import {Provider} from "react-redux";
 import CalculatorApp from "./calculatorApp";
 import TabPage from "./tabPage";
 import React from "react";
 import {Switch, Route} from "react-router-dom";
-import {createStore} from "redux";
-import CalculatorReducer from "./calculatorApp/reducer/calculator";
 
-const store = createStore(CalculatorReducer);
+class Main extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            calcDisplayValue: ''
+        };
+    }
 
-const Main = () => (
-    <main>
-        <Provider store={store}>
-            <Switch>
-                <Route exact path='/' component={CalculatorApp}/>
-                <Route exact path='/tabPage' component={TabPage}/>
-            </Switch>
-        </Provider>
-    </main>
-);
+    handCalcDisplayValue = (calcDisplayValue) => {
+        this.setState({calcDisplayValue});
+    };
+
+    render() {
+        return (
+            <main>
+                <Switch>
+                    <Route exact path='/' render={() => (
+                        <CalculatorApp handCalcDisplayValue={this.handCalcDisplayValue}/>
+                    )}/>
+                    <Route exact path='/tabPage' render={() => (
+                        <TabPage calcDisplayValue={this.state.calcDisplayValue}/>
+                    )}/>
+                </Switch>
+            </main>
+        );
+    }
+}
 
 export default Main;

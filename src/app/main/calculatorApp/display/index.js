@@ -1,16 +1,20 @@
-import React from 'react';
-import CalculatorDisplay from '../component/CalculatorDisplay';
-import {connect} from "react-redux";
+import React from 'react'
+import PropTypes from "prop-types";
 
-const CalculatorDisplayContainer = (props) => {
+const CalculatorDisplay = (props) => {
     return (
-        <CalculatorDisplay displayValue={props.displayValue}/>
+        <div className="row">
+            <input className="form-control" style={{textAlign: 'right'}} type="text" value={props.displayValue}
+                   disabled/>
+        </div>
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        displayValue: state.displayValue
-    }
+CalculatorDisplay.propTypes = {
+    displayValue: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]).isRequired
 };
-export default connect(mapStateToProps)(CalculatorDisplayContainer);
+
+export default CalculatorDisplay;

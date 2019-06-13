@@ -1,68 +1,30 @@
 import React from 'react'
-import {connect} from 'react-redux';
-import CalculatorButton from '../../component/CalculatorButton';
-import {editFirstNumber, editSecondNumber, editOperator, calculate, reset} from "../../reducer/calculator";
+import PropTypes from "prop-types";
 
-const CalculatorButtonContainer = (props) => {
-    const handleClickButton = () => {
-        let btnValue = props.btnValue;
-        if (btnValue.match(/[0-9]|\./)) {
-            // 数字按钮
-            if (props.operator) {
-                // 已输入运算符
-                props.editSecondNumber(btnValue);
-            } else {
-                // 未输入运算符
-                props.editFirstNumber(btnValue);
-            }
-        } else if (btnValue.match(/\+|-|\*|\//)) {
-            // 运算符按钮
-            if (props.firstNumber) {
-                // 输入第一个数字后才能输入运算符
-                props.editOperator(btnValue)
-            }
-
-        } else if (btnValue === '=') {
-            // 计算按钮
-            props.calculate();
-        } else if (btnValue === 'AC') {
-            props.reset();
-        }
+/**
+ * @author sunpwork
+ * 计算器键盘按钮
+ */
+class CalculatorButton extends React.Component {
+    static propTypes = {
+        btnValue: PropTypes.string,
+        handButtonClick: PropTypes.func
     };
 
-    return (
-        <CalculatorButton
-            btnValue={props.btnValue}
-            onClickButton={handleClickButton}
-        />
-    );
-};
-
-const mapStateToProps = (state) => {
-    return {
-        firstNumber: state.firstNumber,
-        operator: state.operator
+    render() {
+        return (
+            <button className="btn btn-outline-primary btn-lg btn-block" onClick={this.onButtonClick}>
+                {this.props.btnValue}
+            </button>
+        );
     }
-};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        editFirstNumber: (btnValue) => {
-            dispatch(editFirstNumber(btnValue));
-        },
-        editSecondNumber: (btnValue) => {
-            dispatch(editSecondNumber(btnValue));
-        },
-        editOperator: (btnValue) => {
-            dispatch(editOperator(btnValue));
-        },
-        calculate: () => {
-            dispatch(calculate());
-        },
-        reset: () => {
-            dispatch(reset());
-        }
-    }
-};
+    /**
+     * 按钮点击事件
+     */
+    onButtonClick = () => {
+        this.props.handButtonClick(this.props.btnValue);
+    };
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(CalculatorButtonContainer);
+export default CalculatorButton;

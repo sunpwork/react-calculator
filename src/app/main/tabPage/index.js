@@ -1,16 +1,17 @@
 import React from 'react'
-import {connect} from "react-redux";
+import PropTypes from 'prop-types';
 
-const Index = (props) => {
+const TabPage = (props) => {
     return (
-        <h1>{props.displayValue}</h1>
+        <h1>{props.calcDisplayValue}</h1>
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        displayValue: state.displayValue
-    }
+TabPage.propTypes = {
+    calcDisplayValue: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ])
 };
 
-export default connect(mapStateToProps)(Index);
+export default TabPage;
